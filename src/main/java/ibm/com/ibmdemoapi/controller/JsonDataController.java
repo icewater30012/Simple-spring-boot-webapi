@@ -1,7 +1,6 @@
 package ibm.com.ibmdemoapi.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.jboss.logging.Logger;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,7 @@ import java.nio.file.Paths;
 @RequestMapping(path = "/api")
 public class JsonDataController {
 
-    private static final Logger logger = LogManager.getLogger(JsonDataController.class);
+    private static final Logger logger = Logger.getLogger(JsonDataController.class);
 
     @RequestMapping(value = "/getJsonData", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
