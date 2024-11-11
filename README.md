@@ -2,7 +2,7 @@
 This is a simple Web API read dataset.json file and return the content back.
 
 ## System Requirement
-       JDK: openjdk-8-jdk
+       JDK: JDK17
        Maven: Apache Maven 3.6.0+
        Podman: 4.2.0
 

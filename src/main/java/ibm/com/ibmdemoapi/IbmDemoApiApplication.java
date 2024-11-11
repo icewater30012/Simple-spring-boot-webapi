@@ -4,14 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.License;
 
 @SpringBootApplication
-@EnableSwagger2
 public class IbmDemoApiApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
@@ -19,11 +17,19 @@ public class IbmDemoApiApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.any())
-				.paths(PathSelectors.any())
-				.build();
+	public OpenAPI openAPI() {
+		return new OpenAPI()
+				.info(new Info()
+						.title("IBM Demo API")
+						.description("Demo API Documentation")
+						.version("1.0")
+						.contact(new Contact()
+								.name("IBM")
+								.email("Raphael.Li@ibm.com")
+								.url("https://www.ibm.com"))
+						.license(new License()
+								.name("Apache 2.0")
+								.url("http://www.apache.org/licenses/LICENSE-2.0.html"))
+				);
 	}
 }
